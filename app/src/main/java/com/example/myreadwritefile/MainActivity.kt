@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun showList() {
-        val items = fileList()
+        val items = fileList().filter { fileName -> (fileName != "profileInstalled") }.toTypedArray()// Code untuk menghiraukan berkas yang terbuat secara otomatis oleh sistem dengan nama profileInstalled
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Pilih file yang diinginkan")
         builder.setItems(items) {dialog, item -> loadData(items[item].toString())}
